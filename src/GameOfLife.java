@@ -14,21 +14,21 @@ public class GameOfLife {
         grid.display();
 
         while (true) {
-            System.out.print("Введите команду: ");
+            System.out.print("Input command ");
             String input = scanner.nextLine();
 
             if (input.equalsIgnoreCase("q")) {
-                System.out.println("Выход из игры.");
+                System.out.println("Exiting..");
                 break;
             } else if (input.equalsIgnoreCase("n")) {
                 grid.update();
                 generation++;
                 grid.display();
-                System.out.println("Поколение: " + generation);
-                System.out.println("Живых клеток: " + grid.countAliveCells());
-                System.out.println("Мертвых клеток: " + grid.deadcells);
+                System.out.println("Generation: " + generation);
+                System.out.println("Alive cells:" + grid.countAliveCells());
+                System.out.println("Dead cells:" + grid.deadcells);
             } else {
-                System.out.println("Неизвестная команда. Используйте 'n' для следующего поколения или 'q' для выхода.");
+                System.out.println("Unknown command. Use 'n' for next generation or 'q' for exit.");
             }
         }
         scanner.close();
@@ -41,14 +41,14 @@ public class GameOfLife {
         String input = scanner.nextLine();
 
         if (input.equalsIgnoreCase("q")) {
-            System.out.println("Выход из игры.");
+            System.out.println("Exiting..");
             System.exit(0);
         } else if (input.equalsIgnoreCase("d")) {
             game.gameDebug();
         } else if (input.equalsIgnoreCase("s")) {
-            // Реализуйте основной игровой режим здесь, если требуется
+
         } else {
-            System.out.println("Неизвестная команда.");
+            System.out.println("Unknown command.");
         }
         scanner.close();
     }

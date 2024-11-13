@@ -9,13 +9,14 @@ public class Grid {
         initializeGrid();
     }
 
-    // Инициализация сетки с случайным состоянием клеток
+
     private void initializeGrid() {
         Random random = new Random();
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                cells[i][j] = new Cell(false);
+                cells[i][j] = new Cell(false); //Input random.nextBoolean() for random cells
             }
+            //Test Glaider
             cells[5][6] = new Cell(true);
             cells[6][7] = new Cell(true);
             cells[6][8] = new Cell(true);
@@ -24,7 +25,7 @@ public class Grid {
 
         }
     }
-    // Обновление состояния сетки на следующий ход
+
     public void update() {
         Cell[][] newCells = new Cell[SIZE][SIZE];
 
@@ -33,15 +34,14 @@ public class Grid {
                 int liveNeighbors = countLiveNeighbors(i, j);
                 boolean currentState = cells[i][j].isAlive();
 
-                // Применяем правила игры
                 if (currentState && (liveNeighbors < 2 || liveNeighbors > 3)) {
                     newCells[i][j] = new Cell(false);
                     deadcells++;
 
                 } else if (!currentState && liveNeighbors == 3) {
-                    newCells[i][j] = new Cell(true); // Клетка оживает
+                    newCells[i][j] = new Cell(true);
                 } else {
-                    newCells[i][j] = new Cell(currentState); // Сохраняет текущее состояние
+                    newCells[i][j] = new Cell(currentState);
                 }
             }
         }
